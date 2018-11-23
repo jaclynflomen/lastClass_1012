@@ -9,6 +9,10 @@
             videodata : [],
             singledata : [],
 
+            videotitle : "",
+            videodescription : "",
+            videosource : "",
+
             showDetails : false 
         },
 
@@ -28,8 +32,20 @@
                 this.fetchMovieData(e.currentTarget.dataset.movie);
             },
 
-            loadMovie(e) {
-                debugger;
+            loadMovie(e) { //use to open lightbox in portfolio
+                //debugger;
+                e.preventDefault(); //block a page reload (anchor tag default behaviour)
+                
+                dataKey = e.currentTarget.getAttribute('href');
+                currentData = this.videodata.filter(video => video.vid_path === dataKey);
+
+                this.videotitle = currentData[0].vid_name;
+                this.videodescription = currentData[0].video_desc;
+                this.videosource = dataKey;
+
+                this.showDetails = true;
+
+                setTimeout(function(){ window.scrollTo(0, 1200)}, 500);
             },
 
             fetchMovieData(movie) {
