@@ -12,10 +12,10 @@
     <main id="app"><!-- > Main tag for Vue <!-->
         <h4 class="welcome-message">{{ welcomemessage }}</h4>
         <ul>
-            <li>
-                <button class="more-details">More Details...</button>
-                <a href="">
-                    <img src="" alt="">
+            <li v-for="video in videodata">
+                <button v-on:click="fetchSingle" :data-movie="video.id" class="more-details">More Details...</button>
+                <a :href="video.vid_path" v-on:click="loadMovie">
+                    <img :src="'images/' + video.vid_thumb" alt="movie poster">
                 </a>
                 <p>Put genre data here</p>
             </li>

@@ -23,6 +23,15 @@
                 console.log('login functionality');
             },
 
+            fetchSingle(e) {
+                //debugger;
+                this.fetchMovieData(e.currentTarget.dataset.movie);
+            },
+
+            loadMovie(e) {
+                debugger;
+            },
+
             fetchMovieData(movie) {
                let url = movie ?`./includes/index.php?movie=${movie}` : './includes/index.php'; 
                 //this is a ternary statement, shorthand if else statement. left of : is true, right is false
