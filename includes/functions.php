@@ -16,7 +16,7 @@
 
     //get all videos
     function get_all_videos($pdo) {
-        $query = "SELECT * FROM video WHERE id = 1";
+        $query = "SELECT * FROM video";
         
         $get_video = $pdo->query($query);
         $results = array();
